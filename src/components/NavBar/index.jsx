@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const NavBar = () => {
+  const [nav, setNav] = useState(false);
+
   const links = [
     {
       id: 1,
@@ -41,6 +43,13 @@ const NavBar = () => {
           );
         })}
       </ul>
+
+      <div
+        onClick={() => setNav(!nav)}
+        className="cursor-pointer pr-4 z-10 text-gray-500"
+      >
+        {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
+      </div>
     </div>
   );
 };
